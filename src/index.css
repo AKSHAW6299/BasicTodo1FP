@@ -1,0 +1,24 @@
+.header {
+  margin: 20px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  background-color: #dad6d6;
+  border: 2px solid black;   /* FIXED */
+  padding: 4px;
+}
+
+.button {
+  color: #dad6d6;   /* text color */
+  margin-left: 6px;
+  padding: 6px;
+  background-color: blueviolet;
+  border: 2px solid black;   /* FIXED */
+}
+
+.strick-through {
+  text-decoration: line-through;
+}
