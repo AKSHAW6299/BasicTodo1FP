@@ -5,6 +5,23 @@ function App() {
   const [input, setInput] = useState('')
   const [todoList, setTodoList] = useState([])
 
+  // LOCAL STORAGE SETUP
+    useEffect(() => {
+    try {
+      const saved = localStorage.getItem('todos');
+      if (saved) {
+        setTodoList(JSON.parse(saved));
+      }
+    } catch (err) {
+      console.error("Invalid JSON in localStorage");
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todoList));
+  }, [todoList]);
+  // //////////////////////////////////////////////////////////
+
   const addTodoItem = () => {
     // The empty input and only spaces as input are not allowed!
     if (input.trim() === "") return
