@@ -6,16 +6,15 @@ function App() {
   const [todoList, setTodoList] = useState([])
 
   // LOCAL STORAGE SETUP
-    useEffect(() => {
-    try {
-      const saved = localStorage.getItem('todos');
-      if (saved) {
-        setTodoList(JSON.parse(saved));
-      }
-    } catch (err) {
-      console.error("Invalid JSON in localStorage");
+ useState(() => {
+    const data = localStorage.getItem('todos')
+    const saved = JSON.parse(data)
+    if (saved) {
+      setTodoList(saved)
+    } else {
+      alert('error finding data')
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todoList));
