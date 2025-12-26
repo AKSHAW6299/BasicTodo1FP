@@ -71,7 +71,7 @@ function App() {
         <ul className='space-y-3'>
           {
             todoList.map(t =>
-              <li key={t.id} className='flex items-center gap-2'>
+              <li key={t.id}>
                 <input type="checkbox" checked={t.completed} onChange={() => togleTask(t.id)} />
                 <span className={t.completed ? 'strick-through' : ''}>{t.text}</span>
                 <button className='bg-red-500 text-white px-3 py-1 rounded' onClick={() => deleteTodo(t.id)}>Delete</button>
