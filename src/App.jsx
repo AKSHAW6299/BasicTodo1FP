@@ -3,18 +3,21 @@ import './index.css'
 
 function App() {
   const [input, setInput] = useState('')
-  const [todoList, setTodoList] = useState([])
-
-  // LOCAL STORAGE SETUP
- useState(() => {
-    const data = localStorage.getItem('todos')
-    const saved = JSON.parse(data)
-    if (saved) {
-      setTodoList(saved)
-    } else {
-      alert('error finding data')
-    }
-  }, [])
+  const [todoList, setTodoList] = useState(() => {
+        return JSON.parse(localStorage.getItem('todos')) || []
+  })
+  
+ // const [todoList, setTodoList] = useState([])
+ //  // LOCAL STORAGE SETUP
+ // useState(() => {
+ //    const data = localStorage.getItem('todos')
+ //    const saved = JSON.parse(data)
+ //    if (saved) {
+ //      setTodoList(saved)
+ //    } else {
+ //      alert('error finding data')
+ //    }
+ //  }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todoList));
@@ -81,5 +84,4 @@ function App() {
     </>
   )
 }
-
 export default App
