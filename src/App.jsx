@@ -62,7 +62,7 @@ function App() {
         <input
           type="text"
           placeholder='Enter todo'
-          className='input'
+          className='input border-2 border-black'
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
